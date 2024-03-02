@@ -6,8 +6,8 @@ import { useState } from "react"
 
         const [counter, setcounter] = useState( initialValue )
 
-        const increment = (value) => {
-            setcounter( counter + value );
+        const increment = (value = 1) => {
+            setcounter( (current) => current + value );
         }
 
         const reset = () => {
@@ -15,9 +15,9 @@ import { useState } from "react"
 
         }
 
-        const decrement = (value) => {
+        const decrement = (value = 1) => {
 
-            setcounter( counter - value );
+            setcounter( (current) => current - value );
 
         }
     
