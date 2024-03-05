@@ -11,7 +11,7 @@ export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
             </span>
             <button 
             className="btn btn-primary"
-            onClick={() => onDeleteTodo( todo.id ) }
+            onClick={ () => onDeleteTodo( todo.id ) }
             >Borrar</button>
         </li>
 

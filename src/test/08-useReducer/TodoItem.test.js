@@ -61,11 +61,26 @@ describe('probando el TodoItem', () => {
         screen.debug();
 
         const spanElement =  screen.getByLabelText('span');
-        // fireEvent.click( spanElement );
+        fireEvent.click( spanElement );
 
-        // expect( onToggleTodoMock ).toHaveBeenCalledWith(todo.id);
-
-        
+        expect( onToggleTodoMock ).toHaveBeenCalledWith(todo.id);       
 
     });
-})
+
+    test('button debe de llamar el deleteTodo', () => {
+        render(
+            <TodoItem
+            todo={ todo }
+            onToggleTodoMock={ onToggleTodoMock }
+            onDeleteTodoMock={ onDeleteTodoMock }
+            />
+        );
+
+        const deleteButton = screen.getByRole('button');
+        fireEvent.click( deleteButton );
+
+        expect( onDeleteTodoMock ).toHaveBeenCalledWith( todo.id );
+
+
+    });
+});
